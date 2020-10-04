@@ -2262,14 +2262,9 @@ start:
 				hba->clk_gating.active_reqs--;
 				break;
 			}
-
-			ufs_spin_unlock_irqrestore(hba->host->host_lock, flags);
-			if (!oops_in_progress)
-				flush_work(&hba->clk_gating.ungate_work);
-			else
-				ufshcd_panic_ungate_work(hba);
-
-			ufs_spin_lock_irqsave(hba->host->host_lock, flags);
+			spin_unlock_irqrestore(hba->host->host_lock, flags);
+			flush_work(&hba->clk_gating.ungate_work);
+			spin_lock_irqsave(hba->host->host_lock, flags);
 			if (hba->ufshcd_state == UFSHCD_STATE_OPERATIONAL)
 				goto start;
 		}
