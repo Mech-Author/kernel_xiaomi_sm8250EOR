@@ -706,6 +706,7 @@ KBUILD_CFLAGS   += -O2
 KBUILD_AFLAGS   += -O2
 KBUILD_LDFLAGS  += -O2
 endif
+endif
 
 # Enable Clang Polly optimizations
 KBUILD_LDLAGS	+= -mllvm -polly \
