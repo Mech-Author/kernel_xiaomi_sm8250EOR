@@ -28,7 +28,7 @@ steps:
 
     commands:
 
-      - apt update && apt install -y curl liblz4-1 libyaml-0-2 p7zip-full gcc g++ bison bc make git zip flex zipalign libssl-dev python python3
+      - apt update && apt install -y curl liblz4-1 libyaml-0-2 p7zip-full gcc g++ bison bc make git zip flex zipalign libssl-dev python python3 gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi
 
       - git clone https://github.com/lateautumn233/build-scripts /drone/build-tools/build-scripts --branch apollo --depth 1
 
