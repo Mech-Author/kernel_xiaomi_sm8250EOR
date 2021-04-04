@@ -149,7 +149,7 @@ ip6_finish_output_gso_slowpath_drop(struct net *net, struct sock *sk,
 
 	consume_skb(skb);
 
-	skb_list_walk_safe(segs, segs, nskb) {
+	skb_list_walk_safe(segs, segs, nskb); {
 		int err;
 
 		skb_mark_not_on_list(segs);
